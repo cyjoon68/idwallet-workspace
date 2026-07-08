@@ -20,4 +20,5 @@ docker compose up --build
 - Mobile identity wallet: credential list, submission request, selective approval.
 - Frontend: Expo, React Compiler, TypeScript, ky, react-native-unistyles.
 - Backend: Kotlin, Spring Boot MVC, PostgreSQL schema.
+- E2E: Maestro submission flow contract in `idwallet-fe/.maestro/submission-flow.yaml`.
 - CI: FE typecheck, BE Gradle test.

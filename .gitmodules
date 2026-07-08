@@ -1,0 +1,8 @@
+[submodule "idwallet-fe"]
+	path = idwallet-fe
+	url = https://github.com/idwallet-labs/idwallet-fe.git
+	branch = develop
+[submodule "idwallet-be"]
+	path = idwallet-be
+	url = https://github.com/idwallet-labs/idwallet-be.git
+	branch = develop

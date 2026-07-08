@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: idwallet
+      POSTGRES_USER: idwallet
+      POSTGRES_PASSWORD: idwallet
+    ports:
+      - "5435:5432"
+  be:
+    build: ./idwallet-be
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/idwallet
+      DATABASE_USERNAME: idwallet
+      DATABASE_PASSWORD: idwallet
+      FLYWAY_ENABLED: "true"
+    ports:
+      - "8083:8080"
+    depends_on:
+      - db
+  fe:
+    build: ./idwallet-fe
+    environment:
+      EXPO_PUBLIC_API_URL: http://localhost:8083/api
+    ports:
+      - "3003:8081"
+    depends_on:
+      - be

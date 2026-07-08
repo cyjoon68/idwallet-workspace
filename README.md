@@ -1,12 +1,17 @@
-# idwallet-workspace
+# IDWallet
 
-Root workspace for IDWallet. Child repos are managed as git submodules.
+IDWallet is a mobile identity wallet for viewing credentials, receiving submission requests, and approving selective credential submission.
 
 ```text
 idwallet-workspace/
   idwallet-fe/
   idwallet-be/
 ```
+
+## Services
+
+- `idwallet-fe`: Expo mobile wallet app.
+- `idwallet-be`: credential list and submission session API.
 
 ## Run
 
@@ -15,11 +20,16 @@ git submodule update --init --recursive
 docker compose up --build
 ```
 
-## Resume evidence
+## Core Flow
 
-- Mobile identity wallet: credential list, submission request, selective approval.
-- Privacy constraint: API returns mock credential metadata plus `payloadHash`; raw credential payload is not exposed.
-- Frontend: Expo, React Compiler, TypeScript, ky, react-native-unistyles.
-- Backend: Kotlin, Spring Boot MVC, PostgreSQL schema.
-- E2E: Maestro submission flow contract in `idwallet-fe/.maestro/submission-flow.yaml`.
-- CI: FE typecheck, BE Gradle test.
+- View credentials in a mobile wallet.
+- Create a submission request.
+- Open the request through QR or deep link flow.
+- Select a credential for submission.
+- Approve the submission response.
+
+## Privacy Boundary
+
+- API responses expose credential metadata and `payloadHash`.
+- Raw credential payloads are not returned by the API.
+- Maestro covers the submission flow contract.

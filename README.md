@@ -1,6 +1,6 @@
 # IDWallet
 
-IDWallet is a mobile identity wallet for viewing credentials, receiving submission requests, and approving selective credential submission.
+IDWallet은 모바일에서 자격증명을 확인하고 제출 요청을 승인하는 신원 지갑 서비스입니다.
 
 ```text
 idwallet-workspace/
@@ -8,28 +8,28 @@ idwallet-workspace/
   idwallet-be/
 ```
 
-## Services
+## 서비스 구성
 
-- `idwallet-fe`: Expo mobile wallet app.
-- `idwallet-be`: credential list and submission session API.
+- `idwallet-fe`: Expo 기반 모바일 지갑 앱
+- `idwallet-be`: 자격증명 목록과 제출 session API
 
-## Run
+## 실행
 
 ```bash
 git submodule update --init --recursive
 docker compose up --build
 ```
 
-## Core Flow
+## 핵심 흐름
 
-- View credentials in a mobile wallet.
-- Create a submission request.
-- Open the request through QR or deep link flow.
-- Select a credential for submission.
-- Approve the submission response.
+- 모바일 지갑에서 자격증명 목록 확인
+- 제출 요청 생성
+- QR 또는 deep link 흐름으로 요청 진입
+- 제출할 자격증명 선택
+- 제출 응답 승인
 
-## Privacy Boundary
+## 개인정보 경계
 
-- API responses expose credential metadata and `payloadHash`.
-- Raw credential payloads are not returned by the API.
-- Maestro covers the submission flow contract.
+- API 응답은 자격증명 metadata와 `payloadHash`만 제공합니다.
+- 원문 credential payload는 API로 반환하지 않습니다.
+- Maestro로 제출 흐름 contract를 확인합니다.
